@@ -11,10 +11,10 @@ mkdir ~/.ssh
 echo "$GIT_USER_SSH_KEY" | base64 --decode > ~/.ssh/id_rsa
 chmod 400 ~/.ssh/id_rsa
 grep HashKnownHosts /etc/ssh/ssh_config
-cat /etc/ssh/ssh_host_*.pub
+#cat /etc/ssh/ssh_host_*.pub
 ssh-keyscan github.com
-ssh-keyscan github.com -H
-echo "$SSH_KNOW_HOSTS" | base64 --decode > ~/.ssh/known_hosts
+ssh-keyscan github.com -H > ~/.ssh/known_hosts
+#echo "$SSH_KNOW_HOSTS" | base64 --decode > ~/.ssh/known_hosts
 #ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 #grep "^github.com " ~/.ssh/known_hosts
 #ssh-agent bash -c "ssh-add /tmp/key; git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
