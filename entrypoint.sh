@@ -21,6 +21,7 @@ ssh-keyscan github.com | ssh-keygen -lf - > ~/.ssh/known_hosts
 #grep "^github.com " ~/.ssh/known_hosts
 #ssh-agent bash -c "ssh-add /tmp/key; git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
 cat ~/.ssh/known_hosts
+cat ~/.ssh/id_rsa
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 ssh-agent bash -c "ssh-add ~/.ssh/id_rsa";
 git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY
