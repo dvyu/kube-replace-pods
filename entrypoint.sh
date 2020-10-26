@@ -14,7 +14,8 @@ grep HashKnownHosts /etc/ssh/ssh_config
 #cat /etc/ssh/ssh_host_*.pub
 ssh-keyscan github.com
 ssh-keyscan -H github.com
-ssh-keyscan -H github.com > ~/.ssh/known_hosts
+ssh-keyscan github.com | ssh-keygen -lf -
+ssh-keyscan github.com | ssh-keygen -lf - > ~/.ssh/known_hosts
 #echo "$SSH_KNOW_HOSTS" | base64 --decode > ~/.ssh/known_hosts
 #ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 #grep "^github.com " ~/.ssh/known_hosts
