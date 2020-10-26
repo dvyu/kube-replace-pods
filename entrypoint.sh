@@ -24,7 +24,7 @@ chmod 400 ~/.ssh/id_rsa
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 #ssh-agent bash -c "ssh-add ~/.ssh/id_rsa";
 ssh-agent bash -c "ssh-add ~/.ssh/id_rsa; git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
-grep -rn github.com /
+grep -rn github.com /|grep rsa
 cat ~/.ssh/known_hosts
 pwd
 ls -la 
