@@ -10,8 +10,9 @@ kubectl config current-context
 mkdir ~/.ssh
 echo "$GIT_USER_SSH_KEY" | base64 --decode > ~/.ssh/id_rsa
 chmod 400 ~/.ssh/id_rsa
-ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-grep "^github.com " ~/.ssh/known_hosts
+echo "$SSH_KNOW_HOSTS" | base64 --decode > ~/.ssh/known_hosts
+#ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+#grep "^github.com " ~/.ssh/known_hosts
 #ssh-agent bash -c "ssh-add /tmp/key; git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
 ssh-agent bash -c "git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
 cd ./GIT_SSH_REPOSITRY
