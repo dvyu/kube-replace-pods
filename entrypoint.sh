@@ -52,6 +52,7 @@ git config --global user.email "${GIT_EMAIL}"
 git add -A
 git diff --cached
 git commit -m "Pods Sirius Settings "${TAG}
-git push
+#git push
+ssh-agent bash -c "ssh-add ~/.ssh/id_rsa; git push";
 git log -2
 
