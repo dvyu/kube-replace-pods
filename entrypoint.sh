@@ -22,7 +22,8 @@ ssh-keyscan github.com | ssh-keygen -lf - > ~/.ssh/known_hosts
 #ssh-agent bash -c "ssh-add /tmp/key; git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
 cat ~/.ssh/known_hosts
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-ssh-agent bash -c "git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY";
+ssh-agent bash -c "ssh-add ~/.ssh/id_rsa";
+git clone ${GIT_SSH_REPOSITRY} ./GIT_SSH_REPOSITRY
 cd ./GIT_SSH_REPOSITRY
 echo YAML_FILE=${YAML_FILE}
 grep -i image: ${YAML_FILE}
